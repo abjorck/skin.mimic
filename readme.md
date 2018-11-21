@@ -22,7 +22,7 @@ Support Kodi by donating @ http://kodi.tv/contribute/donate/
 
 ***
 ***fb42000***
-- Graphical layout changes to fullscreen info, removed media flags, info box and clock
+- Graphical layout changes to fullscreen info, removed media flags, new info box and clock
 - PVR Guide layout change, with scrolling info box
 - PVR Channel layout with scrolling info box and next showing
 - Menu layout changes with side info box
