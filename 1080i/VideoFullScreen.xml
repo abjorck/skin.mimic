@@ -37,5 +37,5 @@
             <include>FullscreenDimensions</include>
             <label>$INFO[Player.SeekNumeric]</label>
         </control>
-    </controls>
+        </controls>
 </window>

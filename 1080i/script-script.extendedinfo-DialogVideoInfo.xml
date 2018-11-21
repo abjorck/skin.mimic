@@ -98,11 +98,6 @@
                     </focusedlayout>
                     <content>
                         <item>
-                            <label>$INFO[Window.Property(year)]</label>
-                            <label2>$LOCALIZE[345]:</label2>
-                            <visible>!String.IsEmpty(Window.Property(year))</visible>
-                        </item>
-                        <item>
                             <label>$INFO[Window.Property(releasedate)]</label>
                             <label2>$LOCALIZE[20416]:</label2>
                             <visible>!String.IsEmpty(Window.Property(releasedate))</visible>

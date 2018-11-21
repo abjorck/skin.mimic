@@ -144,7 +144,7 @@
                         <height>40</height>
                         <font>font30</font>
                         <scroll>true</scroll>
-                        <label>$INFO[Container(500).ListItem.Label]$INFO[Container(500).ListItem.Property(User_Rating),[COLOR highlight]  |  ,[/COLOR]]</label>
+                        <label>hello</label>
                         <textoffsety>-2</textoffsety>
                         <textoffsetx>30</textoffsetx>
                     </control>

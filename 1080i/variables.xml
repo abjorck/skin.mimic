@@ -618,7 +618,6 @@
         <value condition="Window.IsActive(home) + Window.IsVisible(virtualkeyboard)">$LOCALIZE[137]</value>
         <value condition="Window.IsActive(home) + Window.IsVisible(shutdownmenu)">$LOCALIZE[13005]</value>
         <value condition="Window.IsActive(home) + Window.IsVisible(busydialog)">$LOCALIZE[503]</value>
-        <value condition="Window.IsActive(home)">$VAR[LibraryStatsVar]</value>
         <value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml) + !Window.IsActive(script-script.extendedinfo-DialogInfo.xml)">$INFO[Container.CurrentItem,, $LOCALIZE[1443] ]$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
         <value>$LOCALIZE[14116]</value>
     </variable>
@@ -682,9 +681,9 @@
 
         <value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</value>
 
-        <value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</value>
+        <value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[MusicPlayer.Artist]  $INFO[MusicPlayer.Album, • ]</value>
 
-        <value condition="!String.IsEmpty(Player.Title) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Player.Time] / $INFO[Player.Duration]</value>
+        <value condition="!String.IsEmpty(Player.Title) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Player.Time]   •   $INFO[Player.Duration]</value>
 
         <value condition="!String.IsEmpty(Player.Title) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[Player.Time] / $INFO[Player.Duration]</value>
 
