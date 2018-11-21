@@ -20,6 +20,7 @@ Support Kodi by donating @ http://kodi.tv/contribute/donate/
 
 ![Shift View] (https://github.com/braz96/skin.mimic/raw/master/resources/screenshot-06.jpg)
 
+***
 ***fb42000***
 - GUI changes to Fullscreen info, PVR channel change, menus and PVR Guide
 
