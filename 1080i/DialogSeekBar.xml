@@ -1,82 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol>1</defaultcontrol>
-    <visible>[Window.IsActive(videoosd) | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding] + VideoPlayer.IsFullscreen + ![Window.IsVisible(fullscreeninfo) | Window.IsVisible(musicosd) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks) | Window.IsActive(script.pseudotv.TVOverlay.xml) | Window.IsActive(script.pseudotv.live.TVOverlay.xml)]</visible>
-    <controls>
+	<visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
+<controls>
+    <include>PVRChannelNumberInput</include>
         <control type="group">
             <animation effect="slide" start="0,100" end="0,0" time="200">WindowOpen</animation>
             <animation effect="slide" start="0,100" end="0,0" time="200">VisibleChange</animation>
             <animation effect="slide" start="0,0" end="0,100" time="200">WindowClose</animation>
             <top>985</top>
             <visible>!VideoPlayer.Content(livetv)</visible>
-            <control type="image">
-                <top>-14</top>
-                <left>-16</left>
-                <width>1952</width>
-                <height>127</height>
-                <texture border="16">dialog_context.png</texture>
-                <colordiffuse>dialog</colordiffuse>
             </control>
-            <control type="progress">
-                <left>30</left>
-                <top>29</top>
-                <width>1860</width>
-                <height>37</height>
-                <info>Player.ProgressCache</info>
-                <midtexture colordiffuse="44ffffff" border="5">osd/midtexture.png</midtexture>
-            </control>
-            <control type="progress">
-                <left>30</left>
-                <top>29</top>
-                <width>1860</width>
-                <height>37</height>
-                <info>Player.Progress</info>
-            </control>
-            <control type="slider" id="401">
-                <left>30</left>
-                <top>30</top>
-                <width>1860</width>
-                <height>37</height>
-                <controloffsetx>75</controloffsetx>
-                <controloffsety>0</controloffsety>
-                <texturesliderbar>blank.png</texturesliderbar>
-                <textureslidernib>osd/SeekbarNib.png</textureslidernib>
-                <textureslidernibfocus>osd/SeekbarNib.png</textureslidernibfocus>
-            </control>
-            <control type="label">
-                <top>29</top>
-                <left>45</left>
-                <width>900</width>
-                <height>35</height>
-                <font>font12</font>
-                <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
-            </control>
-            <control type="label">
-                <top>29</top>
-                <left>975</left>
-                <width>900</width>
-                <height>35</height>
-                <font>font12</font>
-                <align>right</align>
-                <label>$INFO[Player.TimeRemaining]$INFO[Player.Duration, / ]</label>
-            </control>
-            <control type="label">
-                <top>29</top>
-                <left>30</left>
-                <width>1860</width>
-                <height>35</height>
-                <font>font12</font>
-                <align>center</align>
-                <label>$VAR[SeekLabelVar]</label>
-            </control>
-        </control>
         <control type="group">
-            <animation effect="slide" start="0,300" end="0,0" time="200">WindowOpen</animation>
-            <animation effect="slide" start="0,300" end="0,0" time="200">VisibleChange</animation>
-            <animation effect="slide" start="0,0" end="0,300" time="200">WindowClose</animation>
             <top>780</top>
             <visible>VideoPlayer.Content(livetv)</visible>
-            <control type="image">
+           <control type="image">
                 <top>-16</top>
                 <left>-16</left>
                 <width>1952</width>
@@ -89,98 +27,61 @@
                 <top>30</top>
                 <width>240</width>
                 <height>240</height>
-                <aspectratio aligny="center" align="center">keep</aspectratio>
-                <texture background="true">$INFO[Player.Art(thumb)]</texture>
+                <aspectratio aligny="center" align="center" scalediffuse="false">keep</aspectratio>
+                <texture background="true" diffuse="diffuse/fullscreeninfo-square.png">$INFO[Player.Art(thumb)]</texture>
             </control>
             <control type="label">
                 <left>300</left>
                 <top>25</top>
                 <width>1585</width>
                 <height>40</height>
-                <font>font30</font>
-                <scroll>true</scroll>
-                <label>$INFO[VideoPlayer.Title]</label>
+                <scroll>false</scroll>
+                <font>font16</font>
+                <label>[B]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title][/B]</label>
+            </control>
+            <control type="group">
+                <visible>VideoPlayer.Content(livetv)</visible>
+                <control type="label">
+                    <left>300</left>
+                    <top>72</top>
+                    <width>1585</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <label>[COLOR highlight][B]$INFO[VideoPlayer.ChannelNumberLabel,, ]$INFO[VideoPlayer.ChannelName][/B][/COLOR]  [COLOR Maintext]$INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime][/COLOR]</label>
+                </control>
+	    <control type="textbox">
+                    <label>$INFO[VideoPlayer.Plot]</label>
+                    <left>300</left>
+                    <top>130</top>
+                    <width>1585</width>
+                    <height>90</height>
+                    <font>font14</font>
+                    <scroll>true</scroll>
+                </control>
+                </control>
+            <control type="group">
+                <visible>VideoPlayer.Content(musicvideos)</visible>
+                <left>300</left>
+                <control type="textbox">
+                    <top>90</top>
+                    <width>1600</width>
+                    <height>108</height>
+                    <font>font14_textbox</font>
+                    <aligny>top</aligny>
+                    <include>AutoscrollDefault</include>
+                    <label>$INFO[VideoPlayer.Plot]</label>
+                </control>
             </control>
             <control type="label">
-                <left>300</left>
-                <top>72</top>
-                <width>1585</width>
-                <height>40</height>
-                <font>font14</font>
-                <textcolor>highlight</textcolor>
-                <label>$INFO[VideoPlayer.ChannelNumberLabel,,. ]$INFO[VideoPlayer.ChannelName]</label>
+                    <left>300</left>
+                    <top>233</top>
+                    <width>1200</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <label>[COLOR highlight]$LOCALIZE[19031]: [/COLOR]$INFO[VideoPlayer.NextTitle] $INFO[VideoPlayer.NextStartTime,(, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
+                    <scroll>true</scroll>
+                </control>
             </control>
-            <control type="label">
-                <label>$INFO[VideoPlayer.Plot]</label>
-                <left>300</left>
-                <top>120</top>
-                <width>1585</width>
-                <height>40</height>
-                <font>font14</font>
-                <scroll>true</scroll>
-            </control>
-            <control type="label">
-                <left>300</left>
-                <top>170</top>
-                <width>1585</width>
-                <height>40</height>
-                <font>font14</font>
-                <label>[COLOR highlight]$LOCALIZE[19031]: [/COLOR]$INFO[VideoPlayer.NextTitle] $INFO[VideoPlayer.NextStartTime,(, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
-                <scroll>true</scroll>
-            </control>
-            <control type="progress">
-                <left>300</left>
-                <top>233</top>
-                <width>1587</width>
-                <height>37</height>
-                <info>Player.ProgressCache</info>
-                <midtexture colordiffuse="44ffffff" border="5">osd/midtexture.png</midtexture>
-            </control>
-            <control type="progress">
-                <left>300</left>
-                <top>233</top>
-                <width>1587</width>
-                <height>37</height>
-                <info>Player.Progress</info>
-            </control>
-            <control type="slider" id="401">
-                <left>300</left>
-                <top>234</top>
-                <width>1587</width>
-                <height>37</height>
-                <controloffsetx>75</controloffsetx>
-                <controloffsety>0</controloffsety>
-                <texturesliderbar>blank.png</texturesliderbar>
-                <textureslidernib>osd/SeekbarNib.png</textureslidernib>
-                <textureslidernibfocus>osd/SeekbarNib.png</textureslidernibfocus>
-            </control>
-            <control type="label">
-                <top>233</top>
-                <left>315</left>
-                <width>900</width>
-                <height>35</height>
-                <font>font12</font>
-                <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
-            </control>
-            <control type="label">
-                <top>233</top>
-                <left>975</left>
-                <width>900</width>
-                <height>35</height>
-                <font>font12</font>
-                <align>right</align>
-                <label>$INFO[Player.TimeRemaining]$INFO[Player.Duration, / ]</label>
-            </control>
-            <control type="label">
-                <top>233</top>
-                <left>300</left>
-                <width>1587</width>
-                <height>35</height>
-                <font>font12</font>
-                <align>center</align>
-                <label>$VAR[SeekLabelVar]</label>
-            </control>
-        </control>
         <control type="grouplist">
             <animation effect="slide" start="0,100" end="0,0" time="200">WindowOpen</animation>
             <!--<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>-->
@@ -220,5 +121,5 @@
                 <visible>Player.Forwarding</visible>
             </control>
         </control>
-    </controls>
+     </controls>
 </window>

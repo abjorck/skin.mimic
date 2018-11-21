@@ -18,14 +18,14 @@
             <top>128</top>
             <control type="epggrid" id="10">
                 <description>EPG Grid</description>
-                <left>82</left>
+                <left>50</left>
                 <top>0</top>
-                <width>1838</width>
+                <width>1850</width>
                 <height>690</height>
                 <pagecontrol>60</pagecontrol>
                 <scrolltime tween="quadratic" easing="out">200</scrolltime>
-                <timeblocks>20</timeblocks>
-                <progresstexture colordiffuse="highlight" border="0,72,18,14">PVR-EpgProgressIndicator.png</progresstexture>
+                <timeblocks>30</timeblocks>
+                <progresstexture colordiffuse="dialog" border="0,72,18,14">PVR-EpgProgressIndicator.png</progresstexture>
                 <rulerunit>6</rulerunit>
                 <onleft>SetProperty(MediaMenu,True,home)</onleft>
                 <onleft>SetFocus(9050)</onleft>
@@ -48,45 +48,38 @@
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                 </rulerlayout>
-                <channellayout height="90" width="440">
+                <channellayout height="90" width="400">
                     <control type="label">
-                        <left>5</left>
-                        <width>100</width>
+                        <left>-30</left>
+                        <width>120</width>
                         <height>90</height>
                         <font>font15_title</font>
                         <align>center</align>
-                        <label>$INFO[ListItem.ChannelNumberLabel]</label>
+			<label>[COLOR highlight]$INFO[ListItem.ChannelNumberLabel][/COLOR]</label>
                     </control>
                     <control type="label">
-                        <left>110</left>
-                        <width>236</width>
+                        <left>70</left>
+                        <width>250</width>
                         <height>90</height>
                         <font>font15</font>
-                        <label>$INFO[ListItem.ChannelName]</label>
+                        <label>[COLOR highlight]$INFO[ListItem.ChannelName][/COLOR]</label>
                     </control>
                 </channellayout>
-                <focusedchannellayout height="90" width="440">
-                    <control type="image">
-                        <width>356</width>
-                        <height>90</height>
-                        <texture border="5">listselect_fo.png</texture> 
-                        <colordiffuse>highlight</colordiffuse>
-                        <bordersize>0,3,0,3</bordersize>
-                    </control>
+                <focusedchannellayout height="90" width="400">
                     <control type="label">
-                        <left>5</left>
-                        <width>100</width>
+                        <left>-30</left>
+                        <width>120</width>
                         <height>90</height>
                         <font>font15_title</font>
                         <align>center</align>
-                        <label>$INFO[ListItem.ChannelNumberLabel]</label>
+                        <label>[COLOR maintext]$INFO[ListItem.ChannelNumberLabel][/COLOR]</label>
                     </control>
                     <control type="label" id="1">
-                        <left>110</left>
-                        <width>236</width>
+                        <left>70</left>
+                        <width>250</width>
                         <height>90</height>
                         <font>font15</font>
-                        <label>$INFO[ListItem.ChannelName]</label>
+                        <label>[COLOR maintext]$INFO[ListItem.ChannelName][/COLOR]</label>
                     </control>
                 </focusedchannellayout>
                 <itemlayout height="90" width="120">
@@ -167,16 +160,6 @@
                     </control>
                 </focusedlayout>
             </control>
-            <control type="scrollbar" id="60">
-                <left>476</left>
-                <top>64</top>
-                <height>625</height>
-                <width>10</width>
-                <onleft>10</onleft>
-                <onright>10</onright>
-                <ondown>60</ondown>
-                <onup>60</onup>
-            </control>
             <control type="image">
                 <left>82</left>
                 <top>714</top>
@@ -195,30 +178,31 @@
                     <height>30</height>
                     <font>font14</font>
                     <textoffsetx>15</textoffsetx>
-                    <label>[COLOR highlight]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,: ][/COLOR]$INFO[ListItem.Title]</label>
+                    <label>[COLOR highlight]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,: ][/COLOR][B]$INFO[ListItem.Title][/B]</label>
                 </control>
                 <control type="label">
-                    <top>58</top>
+                    <top>15</top>
+                    <left>880</left>
                     <width>1316</width>
                     <height>30</height>
                     <font>font14</font>
-                    <textoffsetx>15</textoffsetx>
                     <label>[COLOR highlight]$LOCALIZE[515]:[/COLOR] [CAPITALIZE]$INFO[ListItem.Genre][/CAPITALIZE]</label>
                     <visible>!String.IsEmpty(ListItem.Genre)</visible>
                 </control>
                 <control type="textbox" id="81">
                     <label>$INFO[ListItem.Plot]</label>
                     <left>15</left>
-                    <top>105</top>
-                    <width>1286</width>
-                    <height>108</height>
+                    <top>80</top>
+                    <width>1316</width>
+                    <height>110</height>
                     <font>font14_textbox</font>
                     <include>InfoPanelButtonsValues</include>
-                    <include>AutoscrollDefault</include>
+                    <autoscroll delay="10000" time="4000" repeat="5000">!Control.HasFocus(13)</autoscroll>
                 </control>
             </control>
         </control>
         <include>Topbar</include>
         <include>PVRMediaMenu</include>
+        <include>PVRChannelNumberInput</include>
     </controls>
 </window>

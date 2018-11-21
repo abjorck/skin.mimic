@@ -168,12 +168,7 @@
                         </control>
                     </focusedlayout>
                     <content>
-                        <item>
-                            <label>$LOCALIZE[20360]:</label>
-                            <label2>$INFO[Container(100).ListItem.Property(Episode)]</label2>
-                            <visible>!String.IsEmpty(Container(100).ListItem.Property(Episode))</visible>
-                        </item>
-                        <item>
+                       <item>
                             <label>$LOCALIZE[20416]:</label>
                             <label2>$INFO[Container(100).ListItem.Property(Premiered)]</label2>
                             <visible>!String.IsEmpty(Container(100).ListItem.Property(Premiered))</visible>

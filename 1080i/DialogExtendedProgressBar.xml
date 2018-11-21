@@ -16,16 +16,6 @@
                 <control type="image">
                     <width>120</width>
                     <height>120</height>
-                    <texture colordiffuse="44ffffff">progress/loading-back.png</texture>
-                </control>
-                <control type="image">
-                    <width>120</width>
-                    <height>120</height>
-                    <texture colordiffuse="highlight">progress/volume/p$INFO[Control.GetLabel(32)].png</texture>
-                </control>
-                <control type="image">
-                    <width>120</width>
-                    <height>120</height>
                     <texture colordiffuse="55ffffff">progress/loading.png</texture>
                     <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
                 </control>

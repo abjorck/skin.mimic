@@ -105,7 +105,19 @@
             <onfocus>SetFocus(50)</onfocus>
         </control>
     </include>
-    <include name="MediaMenuTop">
+    <include name="PVRChannelNumberInput">
+       <control type="label">
+           <left>0</left>
+           <top>0</top>
+           <width>100%</width>
+           <height>100%</height>
+           <label>$INFO[PVR.ChannelNumberInput]</label>
+           <align>center</align>
+           <font>WeatherTemp</font>
+           <visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
+       </control>
+   </include>
+   <include name="MediaMenuTop">
         <left>15</left>
         <top>0</top>
         <width>400</width>
@@ -880,7 +892,7 @@
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                 </focusedlayout>
-                <content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=8</content>
+                <content>plugin://plugin.program.autocompletion?info=autocomplete;id=$INFO[Control.GetLabel(312).index(1)];limit=8</content>
             </control>
         </control>
     </include>
