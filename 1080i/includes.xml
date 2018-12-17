@@ -528,6 +528,14 @@
                     <onclick>$VAR[FallbackBackgroundOnClickVar]</onclick>
                     <onclick>ActivateWindow(1122)</onclick>
                 </control>
+								<control type="button" id="2217">
+                    <textwidth>352</textwidth>
+                    <include>ButtonCommonValues</include>
+                    <label>Libreelec</label>
+                    <onclick>ClearProperty(MediaMenu,Home)</onclick>
+                    <onclick>ReplaceWindow(service-LibreELEC-Settings-mainWindow)</onclick>
+                    <onclick>Control.SetFocus(50)</onclick>
+                </control>
                 <include>QuicknavButton</include>
                 <include>PlaylistButtons</include>
                 <include content="MenuPlayerControls">
@@ -892,7 +900,7 @@
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                 </focusedlayout>
-                <content>plugin://plugin.program.autocompletion?info=autocomplete;id=$INFO[Control.GetLabel(312).index(1)];limit=8</content>
+                <content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=8</content>
             </control>
         </control>
     </include>
@@ -1425,6 +1433,13 @@
                 <icon>DefaultAddon.png</icon>
                 <onclick>ActivateWindow(AddonBrowser)</onclick>
             </item>
+						<item id="11">
+                <label>LibreELEC</label>
+								<label2>System • Updates • Network • Connections</label2>
+								<visible>System.HasAddon(service.libreelec.settings)</visible>
+								<icon>libreelec.png</icon>
+                <onclick>Runaddon(service.libreelec.settings)</onclick>
+						</item>
         </content>
     </include>
     <include name="ThumbnailItemBackground">
