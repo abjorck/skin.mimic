@@ -418,6 +418,8 @@
                         </control>
                       </itemlayout>
                     <focusedlayout height="100">
+											<control type="group">
+											<visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
                         <control type="image">
                             <width>1256</width>
                             <height>100</height>
@@ -496,6 +498,7 @@
                             <info>ListItem.Property(Strength)</info>
                             <visible>String.IsEqual(ListItem.Property(netType), wifi)</visible>
                         </control>
+											</control>
                       </focusedlayout>
                 </control>
                 <!-- highlighttooth Menu Content -->
@@ -552,6 +555,8 @@
                         </control>
                       </itemlayout>
                     <focusedlayout height="100">
+                      <control type="group">
+											<visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
                         <control type="image">
                             <width>1256</width>
                             <height>100</height>
@@ -595,6 +600,7 @@
                             <textcolor>highlight</textcolor>
                             <label>$ADDON[service.libreelec.settings 32333][COLOR=maintext]$INFO[ListItem.Property(ConnectedState)][/COLOR]</label>
                         </control>
+											</control>
                       </focusedlayout>
                 </control>
             </control>
