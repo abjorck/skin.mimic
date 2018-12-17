@@ -22,6 +22,7 @@ Support Kodi by donating @ http://kodi.tv/contribute/donate/
 
 ***
 ***fb42000***
+- LibreELEC Settings window added
 - Graphical layout changes to fullscreen info, removed media flags, new info box and clock
 - PVR Guide layout change, with scrolling info box
 - PVR Channel layout with scrolling info box and next showing
